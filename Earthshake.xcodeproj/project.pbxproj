@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		912F67BD1CA472A20034A704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BC1CA472A20034A704 /* main.m */; };
+		912F67C01CA472A20034A704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BF1CA472A20034A704 /* AppDelegate.m */; };
+		912F67C31CA472A20034A704 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C21CA472A20034A704 /* FirstViewController.m */; };
+		912F67C61CA472A20034A704 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C51CA472A20034A704 /* SecondViewController.m */; };
+		912F67C91CA472A20034A704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67C71CA472A20034A704 /* Main.storyboard */; };
+		912F67CB1CA472A20034A704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CA1CA472A20034A704 /* Assets.xcassets */; };
+		912F67CE1CA472A20034A704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		912F67B81CA472A20034A704 /* Earthshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		912F67BC1CA472A20034A704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		912F67BE1CA472A20034A704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		912F67BF1CA472A20034A704 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		912F67C11CA472A20034A704 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		912F67C21CA472A20034A704 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		912F67C41CA472A20034A704 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		912F67C51CA472A20034A704 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		912F67C81CA472A20034A704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		912F67CA1CA472A20034A704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		912F67CD1CA472A20034A704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		912F67CF1CA472A20034A704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		912F67B51CA472A20034A704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		912F67AF1CA472A20034A704 = {
+			isa = PBXGroup;
+			children = (
+				912F67BA1CA472A20034A704 /* Earthshake */,
+				912F67B91CA472A20034A704 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		912F67B91CA472A20034A704 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				912F67B81CA472A20034A704 /* Earthshake.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		912F67BA1CA472A20034A704 /* Earthshake */ = {
+			isa = PBXGroup;
+			children = (
+				912F67BE1CA472A20034A704 /* AppDelegate.h */,
+				912F67BF1CA472A20034A704 /* AppDelegate.m */,
+				912F67C11CA472A20034A704 /* FirstViewController.h */,
+				912F67C21CA472A20034A704 /* FirstViewController.m */,
+				912F67C41CA472A20034A704 /* SecondViewController.h */,
+				912F67C51CA472A20034A704 /* SecondViewController.m */,
+				912F67C71CA472A20034A704 /* Main.storyboard */,
+				912F67CA1CA472A20034A704 /* Assets.xcassets */,
+				912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */,
+				912F67CF1CA472A20034A704 /* Info.plist */,
+				912F67BB1CA472A20034A704 /* Supporting Files */,
+			);
+			path = Earthshake;
+			sourceTree = "<group>";
+		};
+		912F67BB1CA472A20034A704 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				912F67BC1CA472A20034A704 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		912F67B71CA472A20034A704 /* Earthshake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 912F67D21CA472A20034A704 /* Build configuration list for PBXNativeTarget "Earthshake" */;
+			buildPhases = (
+				912F67B41CA472A20034A704 /* Sources */,
+				912F67B51CA472A20034A704 /* Frameworks */,
+				912F67B61CA472A20034A704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Earthshake;
+			productName = Earthshake;
+			productReference = 912F67B81CA472A20034A704 /* Earthshake.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		912F67B01CA472A20034A704 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Andrey Paunov";
+				TargetAttributes = {
+					912F67B71CA472A20034A704 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3Y3YUP4F5R;
+					};
+				};
+			};
+			buildConfigurationList = 912F67B31CA472A20034A704 /* Build configuration list for PBXProject "Earthshake" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 912F67AF1CA472A20034A704;
+			productRefGroup = 912F67B91CA472A20034A704 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				912F67B71CA472A20034A704 /* Earthshake */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		912F67B61CA472A20034A704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				912F67CE1CA472A20034A704 /* LaunchScreen.storyboard in Resources */,
+				912F67CB1CA472A20034A704 /* Assets.xcassets in Resources */,
+				912F67C91CA472A20034A704 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		912F67B41CA472A20034A704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				912F67C61CA472A20034A704 /* SecondViewController.m in Sources */,
+				912F67C01CA472A20034A704 /* AppDelegate.m in Sources */,
+				912F67C31CA472A20034A704 /* FirstViewController.m in Sources */,
+				912F67BD1CA472A20034A704 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		912F67C71CA472A20034A704 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				912F67C81CA472A20034A704 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				912F67CD1CA472A20034A704 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		912F67D01CA472A20034A704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		912F67D11CA472A20034A704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		912F67D31CA472A20034A704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Earthshake/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreypaunov.Earthshake;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		912F67D41CA472A20034A704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Earthshake/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreypaunov.Earthshake;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		912F67B31CA472A20034A704 /* Build configuration list for PBXProject "Earthshake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				912F67D01CA472A20034A704 /* Debug */,
+				912F67D11CA472A20034A704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		912F67D21CA472A20034A704 /* Build configuration list for PBXNativeTarget "Earthshake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				912F67D31CA472A20034A704 /* Debug */,
+				912F67D41CA472A20034A704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 912F67B01CA472A20034A704 /* Project object */;
+}
