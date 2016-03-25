@@ -1,14 +1,14 @@
 //
 //  SecondViewController.h
-//  Earthshake
+//  Earthshacker
 //
-//  Created by Andrey Paunov on 2016-03-24.
+//  Created by Andrey Paunov on 2016-03-23.
 //  Copyright © 2016 Andrey Paunov. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @end

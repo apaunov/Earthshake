@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19D076E174AE9AE3837EACC5 /* libPods-Earthshake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F344B4125AC435B86AD2C66 /* libPods-Earthshake.a */; };
 		912F67BD1CA472A20034A704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BC1CA472A20034A704 /* main.m */; };
 		912F67C01CA472A20034A704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BF1CA472A20034A704 /* AppDelegate.m */; };
 		912F67C31CA472A20034A704 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C21CA472A20034A704 /* FirstViewController.m */; };
@@ -14,9 +15,11 @@
 		912F67C91CA472A20034A704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67C71CA472A20034A704 /* Main.storyboard */; };
 		912F67CB1CA472A20034A704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CA1CA472A20034A704 /* Assets.xcassets */; };
 		912F67CE1CA472A20034A704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */; };
+		912F67D71CA474620034A704 /* EarthshakeServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F344B4125AC435B86AD2C66 /* libPods-Earthshake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Earthshake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		912F67B81CA472A20034A704 /* Earthshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912F67BC1CA472A20034A704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		912F67BE1CA472A20034A704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,6 +32,11 @@
 		912F67CA1CA472A20034A704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912F67CD1CA472A20034A704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912F67CF1CA472A20034A704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		912F67D51CA474620034A704 /* EarthshakeServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeServiceImpl.h; sourceTree = "<group>"; };
+		912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeServiceImpl.m; sourceTree = "<group>"; };
+		917D68D31CA4AE0300161784 /* EarthshakeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeService.h; sourceTree = "<group>"; };
+		C9C7929F840698FDF60F25D9 /* Pods-Earthshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake.debug.xcconfig"; sourceTree = "<group>"; };
+		EB92052DA0DCB8E59F77ACD7 /* Pods-Earthshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +44,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D076E174AE9AE3837EACC5 /* libPods-Earthshake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B8524DD7A38241DF22AB081 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F344B4125AC435B86AD2C66 /* libPods-Earthshake.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90671CBC1565D0BFB15AB5BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9C7929F840698FDF60F25D9 /* Pods-Earthshake.debug.xcconfig */,
+				EB92052DA0DCB8E59F77ACD7 /* Pods-Earthshake.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		912F67AF1CA472A20034A704 = {
 			isa = PBXGroup;
 			children = (
 				912F67BA1CA472A20034A704 /* Earthshake */,
 				912F67B91CA472A20034A704 /* Products */,
+				90671CBC1565D0BFB15AB5BD /* Pods */,
+				7B8524DD7A38241DF22AB081 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,14 +91,9 @@
 			children = (
 				912F67BE1CA472A20034A704 /* AppDelegate.h */,
 				912F67BF1CA472A20034A704 /* AppDelegate.m */,
-				912F67C11CA472A20034A704 /* FirstViewController.h */,
-				912F67C21CA472A20034A704 /* FirstViewController.m */,
-				912F67C41CA472A20034A704 /* SecondViewController.h */,
-				912F67C51CA472A20034A704 /* SecondViewController.m */,
-				912F67C71CA472A20034A704 /* Main.storyboard */,
-				912F67CA1CA472A20034A704 /* Assets.xcassets */,
-				912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */,
-				912F67CF1CA472A20034A704 /* Info.plist */,
+				917D68D01CA4AC0F00161784 /* Service */,
+				917D68D61CA4B5F600161784 /* ViewController */,
+				917D68D71CA4B60700161784 /* View */,
 				912F67BB1CA472A20034A704 /* Supporting Files */,
 			);
 			path = Earthshake;
@@ -80,8 +103,48 @@
 			isa = PBXGroup;
 			children = (
 				912F67BC1CA472A20034A704 /* main.m */,
+				912F67CF1CA472A20034A704 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		917D68D01CA4AC0F00161784 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				917D68D31CA4AE0300161784 /* EarthshakeService.h */,
+				917D68D21CA4AD9000161784 /* EarthshakeServiceImpl */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		917D68D21CA4AD9000161784 /* EarthshakeServiceImpl */ = {
+			isa = PBXGroup;
+			children = (
+				912F67D51CA474620034A704 /* EarthshakeServiceImpl.h */,
+				912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */,
+			);
+			name = EarthshakeServiceImpl;
+			sourceTree = "<group>";
+		};
+		917D68D61CA4B5F600161784 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				912F67C11CA472A20034A704 /* FirstViewController.h */,
+				912F67C21CA472A20034A704 /* FirstViewController.m */,
+				912F67C41CA472A20034A704 /* SecondViewController.h */,
+				912F67C51CA472A20034A704 /* SecondViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		917D68D71CA4B60700161784 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				912F67C71CA472A20034A704 /* Main.storyboard */,
+				912F67CA1CA472A20034A704 /* Assets.xcassets */,
+				912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 912F67D21CA472A20034A704 /* Build configuration list for PBXNativeTarget "Earthshake" */;
 			buildPhases = (
+				2A14E201FC8D200C992425C5 /* Check Pods Manifest.lock */,
 				912F67B41CA472A20034A704 /* Sources */,
 				912F67B51CA472A20034A704 /* Frameworks */,
 				912F67B61CA472A20034A704 /* Resources */,
+				71B15F4628B314879AAC9CA1 /* Embed Pods Frameworks */,
+				E8D3CA53BD43D94D16B0977E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,12 +216,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A14E201FC8D200C992425C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		71B15F4628B314879AAC9CA1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8D3CA53BD43D94D16B0977E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		912F67B41CA472A20034A704 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				912F67C61CA472A20034A704 /* SecondViewController.m in Sources */,
+				912F67D71CA474620034A704 /* EarthshakeServiceImpl.m in Sources */,
 				912F67C01CA472A20034A704 /* AppDelegate.m in Sources */,
 				912F67C31CA472A20034A704 /* FirstViewController.m in Sources */,
 				912F67BD1CA472A20034A704 /* main.m in Sources */,
@@ -221,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -260,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -270,9 +385,11 @@
 		};
 		912F67D31CA472A20034A704 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9C7929F840698FDF60F25D9 /* Pods-Earthshake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Earthshake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreypaunov.Earthshake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,9 +398,11 @@
 		};
 		912F67D41CA472A20034A704 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB92052DA0DCB8E59F77ACD7 /* Pods-Earthshake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Earthshake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreypaunov.Earthshake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,6 +428,7 @@
 				912F67D41CA472A20034A704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
