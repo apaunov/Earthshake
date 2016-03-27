@@ -8,19 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@class EarthshakeItemBuilder;
+
 typedef NS_OPTIONS(NSUInteger, MethodType)
 {
     GET,
     POST
 };
-
-typedef void (^ EarthshakeSuccessBlock)(NSURLSessionTask *task, id jsonObject);
-typedef void (^ EarthshakeFailureBlock)(NSURLSessionTask *operation, NSError *error);
+typedef void (^ HTTPSuccessBlock)(NSURLSessionTask * task, id jsonObject);
+typedef void (^ HTTPFailureBlock)(NSURLSessionTask *operation, NSError *error);
+typedef void (^ EarthshakeSuccessBlock)(NSArray *earthshakeItems);
+typedef void (^ EarthshakeFailureBlock)(NSError *error);
 
 @protocol EarthshakeService <NSObject>
 
-- (NSURLSessionTask *) getRequestData: (NSDictionary *) parameters
-                           success: (EarthshakeSuccessBlock) success
-                           failure: (EarthshakeFailureBlock) failure;
+// Properties
+@property (strong, nonatomic) EarthshakeItemBuilder *earthshakeItemBuilder;
+
+// Methods
+- (NSURLSessionTask *) getRequestData:(NSDictionary *)parameters success:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure;
 
 @end

@@ -9,25 +9,30 @@
 /* Begin PBXBuildFile section */
 		19D076E174AE9AE3837EACC5 /* libPods-Earthshake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F344B4125AC435B86AD2C66 /* libPods-Earthshake.a */; };
 		912F67BD1CA472A20034A704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BC1CA472A20034A704 /* main.m */; };
-		912F67C01CA472A20034A704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BF1CA472A20034A704 /* AppDelegate.m */; };
-		912F67C31CA472A20034A704 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C21CA472A20034A704 /* FirstViewController.m */; };
-		912F67C61CA472A20034A704 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C51CA472A20034A704 /* SecondViewController.m */; };
+		912F67C01CA472A20034A704 /* EarthshakeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67BF1CA472A20034A704 /* EarthshakeAppDelegate.m */; };
+		912F67C31CA472A20034A704 /* EarthshakeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C21CA472A20034A704 /* EarthshakeMapViewController.m */; };
+		912F67C61CA472A20034A704 /* EarthshakeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67C51CA472A20034A704 /* EarthshakeTableViewController.m */; };
 		912F67C91CA472A20034A704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67C71CA472A20034A704 /* Main.storyboard */; };
 		912F67CB1CA472A20034A704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CA1CA472A20034A704 /* Assets.xcassets */; };
 		912F67CE1CA472A20034A704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */; };
 		912F67D71CA474620034A704 /* EarthshakeServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */; };
+		917D68DD1CA4C4AC00161784 /* EarthshakeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 917D68DC1CA4C4AC00161784 /* EarthshakeItem.m */; };
+		917D68E01CA4C52600161784 /* EarthshakeItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 917D68DF1CA4C52600161784 /* EarthshakeItemBuilder.m */; };
+		91C8EE3A1CA6F96C00A570A2 /* EarthshakeModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C8EE391CA6F96C00A570A2 /* EarthshakeModelFactory.m */; };
+		91C8EE3E1CA6FF8200A570A2 /* EarthshakeServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C8EE3D1CA6FF8200A570A2 /* EarthshakeServiceFactory.m */; };
+		91C8EE421CA7015D00A570A2 /* EarthshakeViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C8EE411CA7015D00A570A2 /* EarthshakeViewControllerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F344B4125AC435B86AD2C66 /* libPods-Earthshake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Earthshake.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		912F67B81CA472A20034A704 /* Earthshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912F67BC1CA472A20034A704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		912F67BE1CA472A20034A704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		912F67BF1CA472A20034A704 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		912F67C11CA472A20034A704 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		912F67C21CA472A20034A704 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		912F67C41CA472A20034A704 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		912F67C51CA472A20034A704 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		912F67BE1CA472A20034A704 /* EarthshakeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthshakeAppDelegate.h; sourceTree = "<group>"; };
+		912F67BF1CA472A20034A704 /* EarthshakeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthshakeAppDelegate.m; sourceTree = "<group>"; };
+		912F67C11CA472A20034A704 /* EarthshakeMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthshakeMapViewController.h; sourceTree = "<group>"; };
+		912F67C21CA472A20034A704 /* EarthshakeMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthshakeMapViewController.m; sourceTree = "<group>"; };
+		912F67C41CA472A20034A704 /* EarthshakeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthshakeTableViewController.h; sourceTree = "<group>"; };
+		912F67C51CA472A20034A704 /* EarthshakeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthshakeTableViewController.m; sourceTree = "<group>"; };
 		912F67C81CA472A20034A704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		912F67CA1CA472A20034A704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912F67CD1CA472A20034A704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +40,16 @@
 		912F67D51CA474620034A704 /* EarthshakeServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeServiceImpl.h; sourceTree = "<group>"; };
 		912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeServiceImpl.m; sourceTree = "<group>"; };
 		917D68D31CA4AE0300161784 /* EarthshakeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeService.h; sourceTree = "<group>"; };
+		917D68DB1CA4C4AC00161784 /* EarthshakeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeItem.h; sourceTree = "<group>"; };
+		917D68DC1CA4C4AC00161784 /* EarthshakeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeItem.m; sourceTree = "<group>"; };
+		917D68DE1CA4C52600161784 /* EarthshakeItemBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeItemBuilder.h; sourceTree = "<group>"; };
+		917D68DF1CA4C52600161784 /* EarthshakeItemBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeItemBuilder.m; sourceTree = "<group>"; };
+		91C8EE381CA6F96C00A570A2 /* EarthshakeModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeModelFactory.h; sourceTree = "<group>"; };
+		91C8EE391CA6F96C00A570A2 /* EarthshakeModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeModelFactory.m; sourceTree = "<group>"; };
+		91C8EE3C1CA6FF8200A570A2 /* EarthshakeServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeServiceFactory.h; sourceTree = "<group>"; };
+		91C8EE3D1CA6FF8200A570A2 /* EarthshakeServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeServiceFactory.m; sourceTree = "<group>"; };
+		91C8EE401CA7015D00A570A2 /* EarthshakeViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeViewControllerFactory.h; sourceTree = "<group>"; };
+		91C8EE411CA7015D00A570A2 /* EarthshakeViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeViewControllerFactory.m; sourceTree = "<group>"; };
 		C9C7929F840698FDF60F25D9 /* Pods-Earthshake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthshake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake.debug.xcconfig"; sourceTree = "<group>"; };
 		EB92052DA0DCB8E59F77ACD7 /* Pods-Earthshake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthshake.release.xcconfig"; path = "Pods/Target Support Files/Pods-Earthshake/Pods-Earthshake.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +104,12 @@
 		912F67BA1CA472A20034A704 /* Earthshake */ = {
 			isa = PBXGroup;
 			children = (
-				912F67BE1CA472A20034A704 /* AppDelegate.h */,
-				912F67BF1CA472A20034A704 /* AppDelegate.m */,
-				917D68D01CA4AC0F00161784 /* Service */,
-				917D68D61CA4B5F600161784 /* ViewController */,
+				912F67BE1CA472A20034A704 /* EarthshakeAppDelegate.h */,
+				912F67BF1CA472A20034A704 /* EarthshakeAppDelegate.m */,
+				917D68D81CA4C0F100161784 /* Model */,
 				917D68D71CA4B60700161784 /* View */,
+				917D68D61CA4B5F600161784 /* ViewController */,
+				917D68D01CA4AC0F00161784 /* Service */,
 				912F67BB1CA472A20034A704 /* Supporting Files */,
 			);
 			path = Earthshake;
@@ -113,6 +129,7 @@
 			children = (
 				917D68D31CA4AE0300161784 /* EarthshakeService.h */,
 				917D68D21CA4AD9000161784 /* EarthshakeServiceImpl */,
+				91C8EE3B1CA6FF4D00A570A2 /* Factory */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -129,10 +146,9 @@
 		917D68D61CA4B5F600161784 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				912F67C11CA472A20034A704 /* FirstViewController.h */,
-				912F67C21CA472A20034A704 /* FirstViewController.m */,
-				912F67C41CA472A20034A704 /* SecondViewController.h */,
-				912F67C51CA472A20034A704 /* SecondViewController.m */,
+				91C8EE461CA74DE200A570A2 /* Map */,
+				91C8EE471CA74DED00A570A2 /* Table */,
+				91C8EE3F1CA7014600A570A2 /* Factory */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -145,6 +161,87 @@
 				912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		917D68D81CA4C0F100161784 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				917D68DA1CA4C15100161784 /* Items */,
+				917D68D91CA4C14200161784 /* Builders */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		917D68D91CA4C14200161784 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				91C8EE371CA6F91400A570A2 /* Factory */,
+				91C8EE451CA74D7800A570A2 /* EarthshakeItem */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
+		917D68DA1CA4C15100161784 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				917D68DB1CA4C4AC00161784 /* EarthshakeItem.h */,
+				917D68DC1CA4C4AC00161784 /* EarthshakeItem.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		91C8EE371CA6F91400A570A2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				91C8EE381CA6F96C00A570A2 /* EarthshakeModelFactory.h */,
+				91C8EE391CA6F96C00A570A2 /* EarthshakeModelFactory.m */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		91C8EE3B1CA6FF4D00A570A2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				91C8EE3C1CA6FF8200A570A2 /* EarthshakeServiceFactory.h */,
+				91C8EE3D1CA6FF8200A570A2 /* EarthshakeServiceFactory.m */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		91C8EE3F1CA7014600A570A2 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				91C8EE401CA7015D00A570A2 /* EarthshakeViewControllerFactory.h */,
+				91C8EE411CA7015D00A570A2 /* EarthshakeViewControllerFactory.m */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		91C8EE451CA74D7800A570A2 /* EarthshakeItem */ = {
+			isa = PBXGroup;
+			children = (
+				917D68DE1CA4C52600161784 /* EarthshakeItemBuilder.h */,
+				917D68DF1CA4C52600161784 /* EarthshakeItemBuilder.m */,
+			);
+			name = EarthshakeItem;
+			sourceTree = "<group>";
+		};
+		91C8EE461CA74DE200A570A2 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				912F67C11CA472A20034A704 /* EarthshakeMapViewController.h */,
+				912F67C21CA472A20034A704 /* EarthshakeMapViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		91C8EE471CA74DED00A570A2 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				912F67C41CA472A20034A704 /* EarthshakeTableViewController.h */,
+				912F67C51CA472A20034A704 /* EarthshakeTableViewController.m */,
+			);
+			name = Table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +274,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Andrey Paunov";
+				ORGANIZATIONNAME = AP;
 				TargetAttributes = {
 					912F67B71CA472A20034A704 = {
 						CreatedOnToolsVersion = 7.3;
@@ -269,11 +366,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				912F67C61CA472A20034A704 /* SecondViewController.m in Sources */,
+				917D68DD1CA4C4AC00161784 /* EarthshakeItem.m in Sources */,
+				912F67C61CA472A20034A704 /* EarthshakeTableViewController.m in Sources */,
+				91C8EE3E1CA6FF8200A570A2 /* EarthshakeServiceFactory.m in Sources */,
+				91C8EE421CA7015D00A570A2 /* EarthshakeViewControllerFactory.m in Sources */,
 				912F67D71CA474620034A704 /* EarthshakeServiceImpl.m in Sources */,
-				912F67C01CA472A20034A704 /* AppDelegate.m in Sources */,
-				912F67C31CA472A20034A704 /* FirstViewController.m in Sources */,
+				912F67C01CA472A20034A704 /* EarthshakeAppDelegate.m in Sources */,
+				91C8EE3A1CA6F96C00A570A2 /* EarthshakeModelFactory.m in Sources */,
+				912F67C31CA472A20034A704 /* EarthshakeMapViewController.m in Sources */,
 				912F67BD1CA472A20034A704 /* main.m in Sources */,
+				917D68E01CA4C52600161784 /* EarthshakeItemBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
