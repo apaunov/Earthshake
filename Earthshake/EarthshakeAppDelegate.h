@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EarthshakeViewControllerFactory.h"
+
+@protocol EarthshakeService;
 
 @interface EarthshakeAppDelegate : UIResponder <UIApplicationDelegate>
 

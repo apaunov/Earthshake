@@ -11,7 +11,7 @@
 // Properties
 #define kMetadata @"metadata"
 #define kFeatures @"features"
-#define kFeaturesTitle @"title"
+#define kProperties @"properties"
 
 @implementation EarthshakeItemBuilder
 
@@ -23,7 +23,7 @@
     }
 
     EarthshakeItem *earthshakeItem = [[EarthshakeItem alloc] init];
-    earthshakeItem.title = [json objectForKey:kFeaturesTitle];
+    earthshakeItem.properties = [json objectForKey:kProperties];
 
     return earthshakeItem;
 }
@@ -35,7 +35,7 @@
         return nil;
     }
 
-    NSMutableArray *earthshakeItems = [NSMutableArray alloc];
+    NSMutableArray *earthshakeItems = [NSMutableArray array];
     NSArray *features = [json objectForKey:kFeatures];
 
     [features enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop)

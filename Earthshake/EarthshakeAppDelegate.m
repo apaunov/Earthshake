@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) EarthshakeModelFactory *earthshakeModelFactory;
 @property (strong, nonatomic) EarthshakeServiceFactory *earthshakeServiceFactory;
-@property (strong, nonatomic) EarthshakeViewControllerFactory *earthshakeViewControllerFactory;
 
 @end
 
@@ -25,7 +24,6 @@
     // Override point for customization after application launch.
     [self initializeEarthshakeModelFactory];
     [self initializeEarthshakeServiceFactory];
-    [self initializeEarthshakeViewControllerFactory];
 
     return YES;
 }
@@ -68,13 +66,7 @@
 {
     self.earthshakeServiceFactory = [[EarthshakeServiceFactory alloc] init];
     self.earthshakeServiceFactory.earthshakeModelFactory = self.earthshakeModelFactory;
-}
-
-- (void)initializeEarthshakeViewControllerFactory
-{
-    self.earthshakeViewControllerFactory = [[EarthshakeViewControllerFactory alloc] init];
-    self.earthshakeService = [self.earthshakeServiceFactory createEarthshakeService];       // Temporary assignment
-    self.earthshakeViewControllerFactory.earthshakeService = self.earthshakeService;
+    self.earthshakeService = [self.earthshakeServiceFactory createEarthshakeService];
 }
 
 @end

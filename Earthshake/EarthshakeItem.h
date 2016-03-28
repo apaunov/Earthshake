@@ -16,5 +16,7 @@
 @property (strong, nonatomic) NSDictionary *properties;
 @property (strong, nonatomic) NSString *earthshakeId;
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *place;
+@property (strong, nonatomic) NSNumber *magnitude;
 
 @end
