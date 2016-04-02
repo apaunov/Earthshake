@@ -15,7 +15,7 @@
 
 @implementation EarthshakeItemBuilder
 
-- (EarthshakeItem *) buildEarthshakeItem:(NSDictionary *)json
+- (EarthshakeItem *)buildEarthshakeItem:(NSDictionary *)json
 {
     if (!json)
     {
@@ -28,7 +28,7 @@
     return earthshakeItem;
 }
 
-- (NSArray *) buildAllEarthshakeItems:(id)json
+- (NSArray *)buildAllEarthshakeItems:(id)json
 {
     if (!json)
     {

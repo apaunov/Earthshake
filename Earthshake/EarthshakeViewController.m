@@ -19,8 +19,10 @@
 
 // UI properties
 @property (weak, nonatomic) IBOutlet UITableView *earthshakeTable;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-@property (strong, nonatomic) id<EarthshakeService> earthshakeService;    // Protocal to interact with the request service
+// Local properties
+@property (strong, nonatomic) id<EarthshakeService> earthshakeService; // Protocal to interact with the request service
 @property (strong, nonatomic) NSMutableArray *earthshakeItems;
 
 @end
@@ -31,10 +33,13 @@
 {
     [super viewDidLoad];
 
+    self.earthshakeTable.hidden = YES;
+    [self.spinner startAnimating];
+
     NSDictionary *parameters = @{
                                  @"format" : @"geojson",
-                                 @"starttime" : @"2014-01-01",
-                                 @"endtime" : @"2014-01-02",
+                                 @"starttime" : @"2016-03-31",
+                                 @"endtime" : @"2016-04-02",
                                  @"limit" : @20
                                 };
 
@@ -43,13 +48,22 @@
     [self.earthshakeService getRequestData:parameters
                                    success:^(NSArray * earthshakeItems)
     {
+        self.earthshakeTable.hidden = NO;
+        [self.spinner stopAnimating];
+
         self.earthshakeItems = [earthshakeItems copy];
         [self.earthshakeTable reloadData];
-        NSLog(@"Success");
     }
                                    failure:^(NSError *error)
     {
-        NSLog(@"Fail");
+        [self.spinner stopAnimating];
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[error description]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
     }];
 }
 
@@ -78,14 +92,22 @@
 
     cell.place.text = earthshakeItem.place;
     cell.magnitude.text = [earthshakeItem.magnitude stringValue];
+    cell.date.text = earthshakeItem.date;
+    cell.time.text = earthshakeItem.time;
+    cell.featureType.text = earthshakeItem.featureType;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 99;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

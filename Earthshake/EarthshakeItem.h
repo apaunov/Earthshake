@@ -11,12 +11,14 @@
 
 @interface EarthshakeItem : NSObject
 
-@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *featureType;
 @property (strong, nonatomic) NSDictionary *geometry;
 @property (strong, nonatomic) NSDictionary *properties;
 @property (strong, nonatomic) NSString *earthshakeId;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *place;
 @property (strong, nonatomic) NSNumber *magnitude;
+@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSString *time;
 
 @end
