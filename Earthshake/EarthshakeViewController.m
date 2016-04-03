@@ -23,7 +23,8 @@
 
 // Local properties
 @property (strong, nonatomic) id<EarthshakeService> earthshakeService; // Protocal to interact with the request service
-@property (strong, nonatomic) NSMutableArray *earthshakeItems;
+@property (strong, nonatomic) NSArray *earthshakeItems;
+@property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;
 
 @end
 
@@ -38,8 +39,8 @@
 
     NSDictionary *parameters = @{
                                  @"format" : @"geojson",
-                                 @"starttime" : @"2016-03-31",
-                                 @"endtime" : @"2016-04-02",
+                                 @"starttime" : @"2016-04-2",
+                                 @"endtime" : @"2016-04-03",
                                  @"limit" : @20
                                 };
 
@@ -74,20 +75,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.earthshakeItems count];
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        NSLog(@"earthshakeItemsSearchResults count = %lu", (unsigned long)[self.earthshakeItemsSearchResults count]);
+        return [self.earthshakeItemsSearchResults count];
+    }
+    else
+    {
+        NSLog(@"earthshakeItems count = %lu", (unsigned long)[self.earthshakeItems count]);
+        return [self.earthshakeItems count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"esCell";
+    NSString *cellIdentifier = @"earthshakeCell";
 
-    EarthshakeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
-    EarthshakeItem *earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
+    EarthshakeCell *cell = [self.earthshakeTable dequeueReusableCellWithIdentifier:cellIdentifier];
 
     if (!cell)
     {
         cell = [[EarthshakeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+
+    EarthshakeItem *earthshakeItem = nil;
+
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        // From search results
+        earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        // Initial data acquired
+        earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
     }
 
     cell.place.text = earthshakeItem.place;
@@ -103,6 +124,21 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 99;
+}
+
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
+{
+    NSPredicate *resultPredecate = [NSPredicate predicateWithFormat:@"place contains[c] %@", searchText];
+    self.earthshakeItemsSearchResults = [self.earthshakeItems filteredArrayUsingPredicate:resultPredecate];
+}
+
+#pragma mark - Searching methods
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

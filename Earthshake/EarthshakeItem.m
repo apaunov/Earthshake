@@ -17,6 +17,9 @@
 
 @implementation EarthshakeItem
 
+
+// TO DO: REFACTOR THE FORMATTERS TO IMPROVE PERFORMENCE
+
 - (NSString *)title
 {
     NSString *title = [self.properties objectForKey:kTitle];

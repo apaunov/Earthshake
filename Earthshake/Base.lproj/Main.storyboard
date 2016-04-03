@@ -64,16 +64,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pc3-Cx-lgc">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="kQB-wH-vca">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="93W-ly-4do">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <outlet property="delegate" destination="Pc3-Cx-lgc" id="vdy-35-2T6"/>
+                                        <outlet property="delegate" destination="4r2-fA-DSw" id="rgT-Px-iex"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="esCell" id="xDF-59-MBT" customClass="EarthshakeCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="earthshakeCell" id="xDF-59-MBT" userLabel="earthshakeCell" customClass="EarthshakeCell">
                                         <rect key="frame" x="0.0" y="72" width="320" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xDF-59-MBT" id="uPw-aR-VoC">
@@ -163,37 +163,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pc3-Cx-lgc" secondAttribute="trailing" id="A60-If-1Zt"/>
+                            <constraint firstItem="Nbh-0X-oqr" firstAttribute="top" secondItem="Pc3-Cx-lgc" secondAttribute="bottom" id="E8X-9c-USg"/>
                             <constraint firstItem="TZT-Xb-Rd7" firstAttribute="centerX" secondItem="Mnc-CL-YZL" secondAttribute="centerX" id="L9a-YO-yCr"/>
                             <constraint firstItem="Pc3-Cx-lgc" firstAttribute="leading" secondItem="Mnc-CL-YZL" secondAttribute="leading" id="LI5-Xy-d3p"/>
+                            <constraint firstAttribute="trailing" secondItem="Pc3-Cx-lgc" secondAttribute="trailing" id="RSM-Lh-3t4"/>
                             <constraint firstItem="Nbh-0X-oqr" firstAttribute="top" secondItem="Pc3-Cx-lgc" secondAttribute="bottom" id="Z65-DH-8h5"/>
+                            <constraint firstItem="Pc3-Cx-lgc" firstAttribute="top" secondItem="tCk-eZ-gCd" secondAttribute="bottom" id="Zx5-Ud-ASg"/>
                             <constraint firstItem="Pc3-Cx-lgc" firstAttribute="top" secondItem="tCk-eZ-gCd" secondAttribute="bottom" id="cnx-4B-p7f"/>
                             <constraint firstItem="TZT-Xb-Rd7" firstAttribute="centerY" secondItem="Mnc-CL-YZL" secondAttribute="centerY" id="w9x-N6-Uvm"/>
+                            <constraint firstItem="Pc3-Cx-lgc" firstAttribute="leading" secondItem="Mnc-CL-YZL" secondAttribute="leading" id="wEM-r0-Dkm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Earthquakes" id="WHy-Bb-PXe"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="earthshakeTable" destination="Pc3-Cx-lgc" id="2w0-2I-CAe"/>
-                        <outlet property="searchDisplayController" destination="tWn-I1-agY" id="XrZ-tS-UqO"/>
+                        <outlet property="searchDisplayController" destination="nIa-SE-sxa" id="Dqz-GJ-NuB"/>
                         <outlet property="spinner" destination="TZT-Xb-Rd7" id="Jal-14-jLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ns6-AK-3D0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="RzE-zG-jl5">
+                <searchDisplayController id="nIa-SE-sxa">
                     <connections>
-                        <outlet property="delegate" destination="4r2-fA-DSw" id="dBU-OG-aUq"/>
-                        <outlet property="searchContentsController" destination="4r2-fA-DSw" id="k8k-gB-Saf"/>
-                        <outlet property="searchResultsDataSource" destination="4r2-fA-DSw" id="N4X-Ph-1bG"/>
-                        <outlet property="searchResultsDelegate" destination="4r2-fA-DSw" id="9tQ-TT-Yd8"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="tWn-I1-agY">
-                    <connections>
-                        <outlet property="delegate" destination="4r2-fA-DSw" id="SUd-zH-ivS"/>
-                        <outlet property="searchBar" destination="kQB-wH-vca" id="YVt-ej-MTn"/>
-                        <outlet property="searchContentsController" destination="4r2-fA-DSw" id="IEI-pF-o9q"/>
-                        <outlet property="searchResultsDataSource" destination="4r2-fA-DSw" id="hD8-IE-3AP"/>
-                        <outlet property="searchResultsDelegate" destination="4r2-fA-DSw" id="dYb-Hk-9AE"/>
+                        <outlet property="delegate" destination="4r2-fA-DSw" id="U9r-Ey-8kA"/>
+                        <outlet property="searchBar" destination="93W-ly-4do" id="5Qz-ND-iOU"/>
+                        <outlet property="searchContentsController" destination="4r2-fA-DSw" id="XBy-f4-OE9"/>
+                        <outlet property="searchResultsDataSource" destination="4r2-fA-DSw" id="WRA-Sd-2NG"/>
+                        <outlet property="searchResultsDelegate" destination="4r2-fA-DSw" id="9ix-Fi-FsK"/>
                     </connections>
                 </searchDisplayController>
             </objects>
