@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface EarthshakeMapViewController : UIViewController
+@interface EarthshakeMapViewController : UIViewController <CLLocationManagerDelegate>
 
 @end
-

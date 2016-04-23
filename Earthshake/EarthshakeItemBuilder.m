@@ -9,9 +9,10 @@
 #import "EarthshakeItemBuilder.h"
 
 // Properties
-#define kMetadata @"metadata"
-#define kFeatures @"features"
+#define kMetadata   @"metadata"
+#define kFeatures   @"features"
 #define kProperties @"properties"
+#define kGeometry   @"geometry"
 
 @implementation EarthshakeItemBuilder
 
@@ -24,6 +25,7 @@
 
     EarthshakeItem *earthshakeItem = [[EarthshakeItem alloc] init];
     earthshakeItem.properties = [json objectForKey:kProperties];
+    earthshakeItem.geometry = [json objectForKey:kGeometry];
 
     return earthshakeItem;
 }

@@ -26,8 +26,6 @@
     {
         NSArray *earthshakeItems = [self.earthshakeItemBuilder buildAllEarthshakeItems:(NSDictionary *)jsonObject];
 
-        NSLog(@"HTTPSuccessBlock");
-
         if (success)
         {
             success(earthshakeItems);
@@ -36,8 +34,6 @@
 
     HTTPFailureBlock failureBlock = ^(NSURLSessionTask *operation, NSError *error)
     {
-        NSLog(@"HTTPFailureBlock");
-
         if (failure)
         {
             failure(error);

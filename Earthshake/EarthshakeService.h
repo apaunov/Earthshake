@@ -15,7 +15,7 @@ typedef NS_OPTIONS(NSUInteger, MethodType)
     GET,
     POST
 };
-typedef void (^ HTTPSuccessBlock)(NSURLSessionTask * task, id jsonObject);
+typedef void (^ HTTPSuccessBlock)(NSURLSessionTask *task, id jsonObject);
 typedef void (^ HTTPFailureBlock)(NSURLSessionTask *operation, NSError *error);
 typedef void (^ EarthshakeSuccessBlock)(NSArray *earthshakeItems);
 typedef void (^ EarthshakeFailureBlock)(NSError *error);

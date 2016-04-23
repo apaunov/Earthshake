@@ -8,17 +8,17 @@
 
 #import "EarthshakeItem.h"
 
-#define kTitle @"title"
-#define kPlace @"place"
-#define kMagnitude @"mag"
-#define kTime @"time"
-#define kTimeZone @"tz"
-#define kFeatureType @"type"
+#define kTitle          @"title"
+#define kPlace          @"place"
+#define kMagnitude      @"mag"
+#define kTime           @"time"
+#define kTimeZone       @"tz"
+#define kFeatureType    @"type"
+#define kCoordinates    @"coordinates"
 
 @implementation EarthshakeItem
 
-
-// TO DO: REFACTOR THE FORMATTERS TO IMPROVE PERFORMENCE
+// TODO: REFACTOR THE FORMATTERS TO IMPROVE PERFORMENCE
 
 - (NSString *)title
 {
@@ -75,6 +75,15 @@
 {
     NSString *type = [self.properties objectForKey:kFeatureType];
     return [type capitalizedString];
+}
+
+- (CLLocationCoordinate2D)epicenter
+{
+    NSArray *coordinates = [self.geometry objectForKey:kCoordinates];
+
+    CLLocationCoordinate2D epicenter = CLLocationCoordinate2DMake([[coordinates objectAtIndex:1] doubleValue], [[coordinates objectAtIndex:0] doubleValue]);
+
+    return epicenter;
 }
 
 @end
