@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EarthshakeBaseViewController.h"
 
-@interface EarthshakeListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface EarthshakeListViewController : EarthshakeBaseViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
 

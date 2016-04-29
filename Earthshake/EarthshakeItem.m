@@ -8,7 +8,6 @@
 
 #import "EarthshakeItem.h"
 
-#define kTitle          @"title"
 #define kPlace          @"place"
 #define kMagnitude      @"mag"
 #define kTime           @"time"
@@ -20,17 +19,20 @@
 
 // TODO: REFACTOR THE FORMATTERS TO IMPROVE PERFORMENCE
 
-- (NSString *)title
-{
-    NSString *title = [self.properties objectForKey:kTitle];
-    
-    return title;
-}
-
 - (NSString *)place
 {
     NSString *place = [self.properties objectForKey:kPlace];
-    return place;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\d*\\s*(km)\\s*[NSEW]*\\s*(of)\\s*)" options:0 error:nil];
+    NSTextCheckingResult *match = [regex firstMatchInString:place options:0 range:NSMakeRange(0, place.length)];
+    NSRange range = [match rangeAtIndex:1];
+    NSString *placeTrim = place;
+
+    if (range.length)
+    {
+        placeTrim = [place substringFromIndex:range.location + range.length];
+    }
+
+    return placeTrim;
 }
 
 - (NSNumber *)magnitude

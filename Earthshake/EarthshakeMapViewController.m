@@ -10,7 +10,7 @@
 #import "EarthshakeAppDelegate.h"
 #import "EarthshakeService.h"
 #import "EarthshakeItem.h"
-#import "PlaceItem.h"
+#import "PlaceAnnotation.h"
 
 #define kRegionDistanceMultiplier 1000
 
@@ -30,10 +30,11 @@
 {
     [super viewDidLoad];
 
-    [self.tabBarController setTitle: @"Earthshake Map"];
+    [self.tabBarController setTitle: NSLocalizedString(@"Earthshake Map", nil)];
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.mapView.delegate = self;
 
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startMonitoringSignificantLocationChanges];
@@ -45,25 +46,38 @@
     self.mapView.showsUserLocation = YES;
     [self.mapView setZoomEnabled:YES];
     [self.mapView setScrollEnabled:YES];
-    
-    NSDictionary *parameters = @{
-                                 @"format" : @"geojson",
-                                 @"starttime" : @"2016-04-22",
-                                 @"endtime" : @"2016-04-23"
-                                 };
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay: -7];
+
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    NSDate *endTime = [NSDate date];
+    NSDate *startTime = [calender dateByAddingComponents:dateComponents toDate:endTime options:0];
+
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:[dateFormatter stringFromDate:startTime] forKey:kStartTime];
+    [parameters setObject:[dateFormatter stringFromDate:endTime] forKey:kEndTime];
+    [parameters setObject:@"2.5" forKey:kMinMagnitude];
 
     self.earthshakeService = [(EarthshakeAppDelegate *)[[UIApplication sharedApplication] delegate] earthshakeService];
     
-    [self.earthshakeService getRequestData:parameters
-                                   success:^(NSArray * earthshakeItems)
+    [self.earthshakeService getRequestData: parameters
+                                   success: ^(NSArray * earthshakeItems)
      {
          self.earthshakeItems = [earthshakeItems copy];
 
          for (EarthshakeItem *earthshakeItem in self.earthshakeItems)
          {
-             PlaceItem *earthshakePlace = [[PlaceItem alloc] init];
-             earthshakePlace.coordinate = earthshakeItem.epicenter;
-             [self.mapView addAnnotation:earthshakePlace];
+             PlaceAnnotation *earthshakeAnnotation = [[PlaceAnnotation alloc] init];
+             earthshakeAnnotation.title = earthshakeItem.place;
+             earthshakeAnnotation.subtitle = [NSString stringWithFormat:@"%.1f %@", [earthshakeItem.magnitude floatValue], NSLocalizedString(@"magnitude", nil)];
+             earthshakeAnnotation.coordinate = earthshakeItem.epicenter;
+             earthshakeAnnotation.magnitude = earthshakeItem.magnitude;
+
+             [self.mapView addAnnotation:earthshakeAnnotation];
          }
      }
                                    failure:^(NSError *error)
@@ -84,7 +98,7 @@
     if (!self.userLocation)
     {
         // The distance is measured in kilometers
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, [self distanceConverter:10], [self distanceConverter:10]);
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, [self distanceConverter:1000], [self distanceConverter:1000]);
         [self.mapView setRegion:region];
     }
 
@@ -112,6 +126,32 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark Map delegates
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+
+    if (![annotation isKindOfClass:[MKUserLocation class]])
+    {
+        if ([annotation isKindOfClass:[PlaceAnnotation class]])
+        {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:[UIImage imageNamed:@"arrow.png"] forState:UIControlStateNormal];
+
+            annotationView.rightCalloutAccessoryView = button;
+        }
+    }
+    else
+    {
+        return nil;
+    }
+
+    annotationView.canShowCallout = YES;
+
+    return annotationView;
 }
 
 #pragma mark Custom methods

@@ -9,6 +9,8 @@
 #import "EarthshakeAppDelegate.h"
 #import "EarthshakeModelFactory.h"
 #import "EarthshakeServiceFactory.h"
+#import "AFHTTPSessionManager.h"
+#import "AFNetworkActivityLogger.h"
 
 @interface EarthshakeAppDelegate ()
 
@@ -24,6 +26,7 @@
     // Override point for customization after application launch.
     [self initializeEarthshakeModelFactory];
     [self initializeEarthshakeServiceFactory];
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
 
     return YES;
 }

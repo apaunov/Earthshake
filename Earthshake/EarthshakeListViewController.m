@@ -37,17 +37,25 @@
     self.earthshakeTable.hidden = YES;
     [self.spinner startAnimating];
 
-    NSDictionary *parameters = @{
-                                 @"format" : @"geojson",
-                                 @"starttime" : @"2016-04-02",
-                                 @"endtime" : @"2016-04-03",
-                                 @"limit" : @20
-                                };
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay: -7];
+
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    NSDate *endTime = [NSDate date];
+    NSDate *startTime = [calender dateByAddingComponents:dateComponents toDate:endTime options:0];
+
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:[dateFormatter stringFromDate:startTime] forKey:kStartTime];
+    [parameters setObject:[dateFormatter stringFromDate:endTime] forKey:kEndTime];
+    [parameters setObject:@"2.5" forKey:kMinMagnitude];
 
     self.earthshakeService = [(EarthshakeAppDelegate *)[[UIApplication sharedApplication] delegate] earthshakeService];
 
-    [self.earthshakeService getRequestData:parameters
-                                   success:^(NSArray * earthshakeItems)
+    [self.earthshakeService getRequestData: parameters
+                                   success: ^(NSArray * earthshakeItems)
     {
         [self.spinner stopAnimating];
         self.earthshakeTable.hidden = NO;
@@ -121,7 +129,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 99;
+    return 115;
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope

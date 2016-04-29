@@ -11,12 +11,14 @@
 #import "EarthshakeItemBuilder.h"
 
 #define USGS_END_EVENT_POINT @"http://earthquake.usgs.gov/fdsnws/event/1/"
+#define kFormet @"format"
+#define kGeoJson @"geojson"
 
 @implementation EarthshakeServiceImpl
 
 @synthesize earthshakeItemBuilder;
 
-- (NSURLSessionTask *)getRequestData:(NSDictionary *)parameters success:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure
+- (NSURLSessionTask *)getRequestData:(NSMutableDictionary *)parameters success:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure
 {
     NSString *endPoint = [NSString stringWithFormat: @"%@query", USGS_END_EVENT_POINT];
     NSURL *url = [NSURL URLWithString: endPoint];
@@ -40,7 +42,14 @@
         }
     };
 
-    return [sessionManager GET:url.absoluteString parameters:parameters progress:nil success:successBlock failure:failureBlock];
+    // Add default params
+    [parameters setObject:kGeoJson forKey: kFormet];
+    
+    return [sessionManager GET: url.absoluteString
+                    parameters: parameters
+                      progress: nil
+                       success: successBlock
+                       failure: failureBlock];
 }
 
 @end

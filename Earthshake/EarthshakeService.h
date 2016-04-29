@@ -26,6 +26,6 @@ typedef void (^ EarthshakeFailureBlock)(NSError *error);
 @property (strong, nonatomic) EarthshakeItemBuilder *earthshakeItemBuilder;
 
 // Methods
-- (NSURLSessionTask *) getRequestData:(NSDictionary *)parameters success:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure;
+- (NSURLSessionTask *) getRequestData:(NSMutableDictionary *)parameters success:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure;
 
 @end
