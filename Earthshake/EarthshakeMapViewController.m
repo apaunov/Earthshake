@@ -139,7 +139,10 @@
         if ([annotation isKindOfClass:[PlaceAnnotation class]])
         {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setImage:[UIImage imageNamed:@"arrow.png"] forState:UIControlStateNormal];
+            UIImage *forwardImage = [UIImage imageNamed:@"Show More"];
+
+            button.frame = CGRectMake(0, 0, forwardImage.size.width, forwardImage.size.height);
+            [button setImage:forwardImage forState:UIControlStateNormal];
 
             annotationView.rightCalloutAccessoryView = button;
         }

@@ -129,7 +129,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return 100;
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope

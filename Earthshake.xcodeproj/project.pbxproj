@@ -18,6 +18,7 @@
 		912F67CE1CA472A20034A704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912F67CC1CA472A20034A704 /* LaunchScreen.storyboard */; };
 		912F67D71CA474620034A704 /* EarthshakeServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */; };
 		915AA75D1CD3AACF00DF1B66 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AA75C1CD3AACF00DF1B66 /* PlaceAnnotation.m */; };
+		915AA7671CD3FB4700DF1B66 /* EarthshakeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915AA7661CD3FB4700DF1B66 /* EarthshakeDetailsViewController.m */; };
 		917D68DD1CA4C4AC00161784 /* EarthshakeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 917D68DC1CA4C4AC00161784 /* EarthshakeItem.m */; };
 		917D68E01CA4C52600161784 /* EarthshakeItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 917D68DF1CA4C52600161784 /* EarthshakeItemBuilder.m */; };
 		91C8EE3A1CA6F96C00A570A2 /* EarthshakeModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C8EE391CA6F96C00A570A2 /* EarthshakeModelFactory.m */; };
@@ -46,6 +47,8 @@
 		912F67D61CA474620034A704 /* EarthshakeServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeServiceImpl.m; sourceTree = "<group>"; };
 		915AA75B1CD3AACF00DF1B66 /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
 		915AA75C1CD3AACF00DF1B66 /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		915AA7651CD3FB4700DF1B66 /* EarthshakeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeDetailsViewController.h; sourceTree = "<group>"; };
+		915AA7661CD3FB4700DF1B66 /* EarthshakeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeDetailsViewController.m; sourceTree = "<group>"; };
 		917D68D31CA4AE0300161784 /* EarthshakeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeService.h; sourceTree = "<group>"; };
 		917D68DB1CA4C4AC00161784 /* EarthshakeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthshakeItem.h; sourceTree = "<group>"; };
 		917D68DC1CA4C4AC00161784 /* EarthshakeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthshakeItem.m; sourceTree = "<group>"; };
@@ -149,6 +152,15 @@
 				915AA75C1CD3AACF00DF1B66 /* PlaceAnnotation.m */,
 			);
 			name = Place;
+			sourceTree = "<group>";
+		};
+		915AA7641CD3FB0200DF1B66 /* EarthshakeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				915AA7651CD3FB4700DF1B66 /* EarthshakeDetailsViewController.h */,
+				915AA7661CD3FB4700DF1B66 /* EarthshakeDetailsViewController.m */,
+			);
+			name = EarthshakeDetails;
 			sourceTree = "<group>";
 		};
 		917D68D01CA4AC0F00161784 /* Service */ = {
@@ -266,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				911560FA1CA9C6FD00C3D0F6 /* Cell */,
+				915AA7641CD3FB0200DF1B66 /* EarthshakeDetails */,
 				912F67C41CA472A20034A704 /* EarthshakeListViewController.h */,
 				912F67C51CA472A20034A704 /* EarthshakeListViewController.m */,
 			);
@@ -423,6 +436,7 @@
 				912F67C31CA472A20034A704 /* EarthshakeMapViewController.m in Sources */,
 				912F67BD1CA472A20034A704 /* main.m in Sources */,
 				917D68E01CA4C52600161784 /* EarthshakeItemBuilder.m in Sources */,
+				915AA7671CD3FB4700DF1B66 /* EarthshakeDetailsViewController.m in Sources */,
 				91FDE0961CCD1C1D0000011B /* EarthshakeBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
