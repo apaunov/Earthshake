@@ -72,16 +72,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAZ-eX-YYh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAZ-eX-YYh">
                                                     <rect key="frame" x="8" y="8" width="304" height="17"/>
-                                                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R7-0W-vpN">
                                                     <rect key="frame" x="8" y="31" width="56" height="57"/>
-                                                    <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="Vmt-4P-Bj8"/>
                                                         <constraint firstAttribute="height" constant="57" id="bur-II-wjn"/>
@@ -92,14 +90,12 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzy-1l-Hsk">
                                                     <rect key="frame" x="72" y="31" width="240" height="17"/>
-                                                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3y-nC-oqC">
                                                     <rect key="frame" x="72" y="51" width="240" height="17"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Time">
                                                             <attributes>
@@ -113,7 +109,6 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-xO-f50">
                                                     <rect key="frame" x="72" y="71" width="240" height="17"/>
-                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -144,7 +139,7 @@
                                             <outlet property="magnitude" destination="2R7-0W-vpN" id="2HD-bZ-1fz"/>
                                             <outlet property="place" destination="dAZ-eX-YYh" id="0el-w3-SmL"/>
                                             <outlet property="time" destination="X3y-nC-oqC" id="uK6-Oo-fsU"/>
-                                            <segue destination="FUm-5O-yUA" kind="show" identifier="ShowEarthshakeDetails" id="hEz-u8-7S3"/>
+                                            <segue destination="FUm-5O-yUA" kind="show" identifier="ShowEarthshakeDetails" id="y71-xY-Njl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,7 +163,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Earthquakes" id="WHy-Bb-PXe"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="earthshakeTable" destination="Pc3-Cx-lgc" id="2w0-2I-CAe"/>
                         <outlet property="searchDisplayController" destination="nIa-SE-sxa" id="Dqz-GJ-NuB"/>
@@ -188,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1282" y="333"/>
         </scene>
-        <!--View Controller-->
+        <!--Earthshake Details-->
         <scene sceneID="uQe-Ci-gk4">
             <objects>
-                <viewController id="FUm-5O-yUA" sceneMemberID="viewController">
+                <viewController id="FUm-5O-yUA" customClass="EarthshakeDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MRy-kf-it0"/>
                         <viewControllerLayoutGuide type="bottom" id="m50-W0-ant"/>
@@ -199,14 +193,27 @@
                     <view key="view" contentMode="scaleToFill" id="tby-2g-XgY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-Pq-cTG">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efw-de-laY">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PmC-Is-3Zu"/>
+                    <navigationItem key="navigationItem" title="Earthshake Details" id="PmC-Is-3Zu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="earthshakeWebView" destination="efw-de-laY" id="cvB-Uc-z7b"/>
+                        <outlet property="spinner" destination="hwx-Pq-cTG" id="jhj-3j-LaY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgO-se-M8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="333"/>
+            <point key="canvasLocation" x="1777" y="333"/>
         </scene>
         <!--Earthshake Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -266,31 +273,9 @@
             </objects>
             <point key="canvasLocation" x="750" y="333"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="l7i-Yl-2AS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZNz-fj-xvE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yxw-mK-OZM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FUm-5O-yUA" kind="relationship" relationship="rootViewController" id="k0F-ZY-5Cl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ox-eb-umb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1724" y="-395"/>
-        </scene>
     </scenes>
     <resources>
         <image name="List" width="33" height="33"/>
         <image name="Pin" width="33" height="33"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="k0F-ZY-5Cl"/>
-    </inferredMetricsTieBreakers>
 </document>

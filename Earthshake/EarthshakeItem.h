@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSNumber *magnitude;
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *time;
+@property (strong, nonatomic) NSString *detailURLString;
 @property (assign, nonatomic) CLLocationCoordinate2D epicenter;
 
 @end

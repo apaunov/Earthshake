@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EarthshakeBaseViewController.h"
 
-@interface EarthshakeDetailsViewController : UIViewController
+@interface EarthshakeDetailsViewController : EarthshakeBaseViewController <UIWebViewDelegate>
+
+@property (strong, nonatomic) NSString *detailURLString;
 
 @end

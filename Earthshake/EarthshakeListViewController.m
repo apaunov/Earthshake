@@ -7,6 +7,7 @@
 //
 
 #import "EarthshakeListViewController.h"
+#import "EarthshakeDetailsViewController.h"
 #import "EarthshakeCell.h"
 #import "EarthshakeAppDelegate.h"
 #import "EarthshakeService.h"
@@ -22,9 +23,10 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 // Local properties
-@property (strong, nonatomic) id<EarthshakeService> earthshakeService;  // Protocal to interact with the request service
-@property (strong, nonatomic) NSArray *earthshakeItems;                 // All accuired items
-@property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;    // Search results on specific search criteria
+@property (strong, nonatomic) id<EarthshakeService> earthshakeService;          // Protocal to interact with the request service
+@property (strong, nonatomic) NSArray *earthshakeItems;                         // All accuired items
+@property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;            // Search results on specific search criteria
+@property (strong, nonatomic) NSString *showEarthshakeDetailsSegueIdentifier;   // Identifier to help distinguish between segues
 
 @end
 
@@ -35,6 +37,8 @@
     [super viewDidLoad];
 
     self.earthshakeTable.hidden = YES;
+    self.showEarthshakeDetailsSegueIdentifier = @"ShowEarthshakeDetails";
+
     [self.spinner startAnimating];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -75,6 +79,8 @@
         [alert show];
     }];
 }
+
+#pragma mark Delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -129,7 +135,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    EarthshakeCell *cell = [[EarthshakeCell alloc] init];
+//    EarthshakeItem *earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
+//
+//    // Initial height
+//    CGFloat height = 30.0f;
+//
+//    height += [cell.magnitude.text sizeWithAttributes:@{NSFontAttributeName: cell.magnitude.font}].height;
+//
+//    NSLog(@"Total height: %f", height);
+
     return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
@@ -145,6 +166,26 @@
     [self filterContentForSearchText:searchString
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     return YES;
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:self.showEarthshakeDetailsSegueIdentifier])
+    {
+        if ([segue.destinationViewController isKindOfClass:[EarthshakeDetailsViewController class]])
+        {
+            EarthshakeDetailsViewController *destinationViewController = segue.destinationViewController;
+            NSInteger earthshakeItemIndex = self.earthshakeTable.indexPathForSelectedRow.row;
+            EarthshakeItem *earthshakeItem = self.earthshakeItems[earthshakeItemIndex];
+            destinationViewController.detailURLString = earthshakeItem.detailURLString;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

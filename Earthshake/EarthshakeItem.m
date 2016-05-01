@@ -13,6 +13,7 @@
 #define kTime           @"time"
 #define kTimeZone       @"tz"
 #define kFeatureType    @"type"
+#define kUrl            @"url"
 #define kCoordinates    @"coordinates"
 
 @implementation EarthshakeItem
@@ -77,6 +78,12 @@
 {
     NSString *type = [self.properties objectForKey:kFeatureType];
     return [type capitalizedString];
+}
+
+- (NSString *)detailURLString
+{
+    NSString *urlString = [self.properties objectForKey:kUrl];
+    return urlString;
 }
 
 - (CLLocationCoordinate2D)epicenter

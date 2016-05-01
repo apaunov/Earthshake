@@ -7,31 +7,48 @@
 //
 
 #import "EarthshakeDetailsViewController.h"
+#import "EarthshakeItem.h"
 
 @interface EarthshakeDetailsViewController ()
+
+@property (weak, nonatomic) IBOutlet UIWebView *earthshakeWebView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
 @implementation EarthshakeDetailsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.earthshakeWebView.delegate = self;
+    self.earthshakeWebView.hidden = YES;
+
+    [self.spinner startAnimating];
+
+    NSURL *url = [NSURL URLWithString:self.detailURLString];
+    NSURLRequest *requestObject = [NSURLRequest requestWithURL:url];
+
+    [self.earthshakeWebView loadRequest:requestObject];
 }
 
-- (void)didReceiveMemoryWarning {
+#pragma mark WebView delegate methods
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.spinner stopAnimating];
+    self.earthshakeWebView.hidden = NO;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self.spinner stopAnimating];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
