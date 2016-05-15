@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *magnitude;
 @property (weak, nonatomic) IBOutlet UILabel *date;
 @property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *featureType;
+@property (weak, nonatomic) IBOutlet UIImageView *earthshakeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *tsunamiImageView;
 
 @end

@@ -23,5 +23,9 @@
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *detailURLString;
 @property (assign, nonatomic) CLLocationCoordinate2D epicenter;
+@property (strong, nonatomic) NSNumber *tsunami;
+
+- (BOOL)isEarthquake;
+- (BOOL)isQuarry;
 
 @end

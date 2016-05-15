@@ -9,8 +9,6 @@
 #import "EarthshakeListViewController.h"
 #import "EarthshakeDetailsViewController.h"
 #import "EarthshakeCell.h"
-#import "EarthshakeAppDelegate.h"
-#import "EarthshakeService.h"
 #import "EarthshakeItemBuilder.h"
 
 #define NUMBER_OF_SECTIONS 1
@@ -19,11 +17,10 @@
 @interface EarthshakeListViewController ()
 
 // UI properties
-@property (weak, nonatomic) IBOutlet UITableView *earthshakeTable;
+@property (weak, nonatomic) IBOutlet UITableView *earthshakeTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 // Local properties
-@property (strong, nonatomic) id<EarthshakeService> earthshakeService;          // Protocal to interact with the request service
 @property (strong, nonatomic) NSArray *earthshakeItems;                         // All accuired items
 @property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;            // Search results on specific search criteria
 @property (strong, nonatomic) NSString *showEarthshakeDetailsSegueIdentifier;   // Identifier to help distinguish between segues
@@ -32,55 +29,16 @@
 
 @implementation EarthshakeListViewController
 
+#pragma mark - Delegate methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.earthshakeTable.hidden = YES;
     self.showEarthshakeDetailsSegueIdentifier = @"ShowEarthshakeDetails";
 
-    [self.spinner startAnimating];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setDay: -7];
-
-    NSCalendar *calender = [NSCalendar currentCalendar];
-    NSDate *endTime = [NSDate date];
-    NSDate *startTime = [calender dateByAddingComponents:dateComponents toDate:endTime options:0];
-
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setObject:[dateFormatter stringFromDate:startTime] forKey:kStartTime];
-    [parameters setObject:[dateFormatter stringFromDate:endTime] forKey:kEndTime];
-    [parameters setObject:@"2.5" forKey:kMinMagnitude];
-
-    self.earthshakeService = [(EarthshakeAppDelegate *)[[UIApplication sharedApplication] delegate] earthshakeService];
-
-    [self.earthshakeService getRequestData: parameters
-                                   success: ^(NSArray * earthshakeItems)
-    {
-        [self.spinner stopAnimating];
-        self.earthshakeTable.hidden = NO;
-
-        self.earthshakeItems = [earthshakeItems copy];
-        [self.earthshakeTable reloadData];
-    }
-                                   failure:^(NSError *error)
-    {
-        [self.spinner stopAnimating];
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[error description]
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-    }];
+    [self loadTableData];
 }
-
-#pragma mark Delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -103,7 +61,7 @@
 {
     NSString *cellIdentifier = @"earthshakeCell";
 
-    EarthshakeCell *cell = [self.earthshakeTable dequeueReusableCellWithIdentifier:cellIdentifier];
+    EarthshakeCell *cell = [self.earthshakeTableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
     if (!cell)
     {
@@ -124,10 +82,29 @@
     }
 
     cell.place.text = earthshakeItem.place;
-    cell.magnitude.text = [earthshakeItem.magnitude stringValue];
+    cell.magnitude.text = [self.decimalFormatter stringFromNumber:earthshakeItem.magnitude];
+    cell.magnitude.backgroundColor = [self determineMagnitudeColor:earthshakeItem.magnitude];
     cell.date.text = earthshakeItem.date;
     cell.time.text = earthshakeItem.time;
-    cell.featureType.text = earthshakeItem.featureType;
+
+    if ([earthshakeItem isEarthquake])
+    {
+        [cell.earthshakeImageView setImage:[UIImage imageNamed:@"Earthquake"]];
+    }
+    else if ([earthshakeItem isQuarry])
+    {
+        [cell.earthshakeImageView setImage:[UIImage imageNamed:@"Explosion"]];
+    }
+
+    if ([earthshakeItem.tsunami intValue] == 1)
+    {
+        [cell.tsunamiImageView setImage:[UIImage imageNamed:@"Tsunami"]];
+    }
+    else
+    {
+        cell.tsunamiImageView.image = nil;
+    }
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
@@ -145,6 +122,11 @@
 //
 //    NSLog(@"Total height: %f", height);
 
+//    if ([earthshakeItem.tsunami intValue] == 1)
+//    {
+//        return 116;
+//    }
+
     return 100;
 }
 
@@ -159,9 +141,14 @@
     self.earthshakeItemsSearchResults = [self.earthshakeItems filteredArrayUsingPredicate:resultPredecate];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
 #pragma mark - Searching methods
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
@@ -175,22 +162,95 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
+
     if ([segue.identifier isEqualToString:self.showEarthshakeDetailsSegueIdentifier])
     {
         if ([segue.destinationViewController isKindOfClass:[EarthshakeDetailsViewController class]])
         {
             EarthshakeDetailsViewController *destinationViewController = segue.destinationViewController;
-            NSInteger earthshakeItemIndex = self.earthshakeTable.indexPathForSelectedRow.row;
-            EarthshakeItem *earthshakeItem = self.earthshakeItems[earthshakeItemIndex];
+            EarthshakeItem *earthshakeItem;
+
+            if (self.searchDisplayController.active)
+            {
+                earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:self.searchDisplayController.searchResultsTableView.indexPathForSelectedRow.row];
+            }
+            else
+            {
+                earthshakeItem = [self.earthshakeItems objectAtIndex:self.earthshakeTableView.indexPathForSelectedRow.row];
+            }
+
             destinationViewController.detailURLString = earthshakeItem.detailURLString;
         }
     }
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Helper methods
+
+- (UIColor *)determineMagnitudeColor:(NSNumber *)magnitude
 {
-    [super didReceiveMemoryWarning];
+    float mag = [magnitude floatValue];
+    UIColor *color = [UIColor whiteColor];
+
+    if (1.0 < mag && mag < 3.0)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:(230.0 / 255.0) blue:(230.0 / 255.0) alpha:1.0];
+    }
+    else if (3.0 <= mag && mag < 4.0)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:(204.0 / 255.0) blue:(204.0 / 255.0) alpha:1.0];
+    }
+    else if (4.0 <= mag && mag < 5.0)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:(153.0 / 255.0) blue:(153.0 / 255.0) alpha:1.0];
+    }
+    else if (5.0 <= mag && mag < 6.0)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:(128.0 / 255.0) blue:(128.0 / 255.0) alpha:1.0];
+    }
+    else if (6.0 <= mag && mag < 7.0)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:(102.0 / 255.0) blue:(102.0 / 255.0) alpha:1.0];
+    }
+    else if (7.0 <= mag)
+    {
+        color = [UIColor colorWithRed:(255.0 / 255.0) green:0.0 blue:0.0 alpha:1.0];
+    }
+
+    return color;
+}
+
+- (void)loadTableData
+{
+    self.earthshakeTableView.hidden = YES;
+    [self.spinner startAnimating];
+
+    [super getRequestDataSuccess:^(NSArray * earthshakeItems)
+    {
+        [self.spinner stopAnimating];
+
+        self.earthshakeItems = [earthshakeItems copy];
+        self.earthshakeTableView.hidden = NO;
+
+        [self.earthshakeTableView reloadData];
+    }
+                         failure:^(NSError *error)
+    {
+        [self.spinner stopAnimating];
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error"
+                                                        message: error.localizedDescription
+                                                       delegate: self
+                                              cancelButtonTitle: @"OK"
+                                              otherButtonTitles: nil, nil];
+        [alert show];
+    }];
+}
+
+- (void)didSelectRefresh
+{
+    [super didSelectRefresh];
+
+    [self loadTableData];
 }
 
 @end

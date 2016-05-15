@@ -23,17 +23,11 @@
     [super viewDidLoad];
 
     self.earthshakeWebView.delegate = self;
-    self.earthshakeWebView.hidden = YES;
 
-    [self.spinner startAnimating];
-
-    NSURL *url = [NSURL URLWithString:self.detailURLString];
-    NSURLRequest *requestObject = [NSURLRequest requestWithURL:url];
-
-    [self.earthshakeWebView loadRequest:requestObject];
+    [self loadDetailsData];
 }
 
-#pragma mark WebView delegate methods
+#pragma mark - WebView delegate methods
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -49,6 +43,27 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Helper methods
+
+- (void)loadDetailsData
+{
+    self.earthshakeWebView.hidden = YES;
+
+    [self.spinner startAnimating];
+
+    NSURL *url = [NSURL URLWithString:self.detailURLString];
+    NSURLRequest *requestObject = [NSURLRequest requestWithURL:url];
+
+    [self.earthshakeWebView loadRequest:requestObject];
+}
+
+- (void)didSelectRefresh
+{
+    [super didSelectRefresh];
+
+    [self loadDetailsData];
 }
 
 @end

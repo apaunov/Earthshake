@@ -14,6 +14,7 @@
 #define kTimeZone       @"tz"
 #define kFeatureType    @"type"
 #define kUrl            @"url"
+#define kTsunami        @"tsunami"
 #define kCoordinates    @"coordinates"
 
 @implementation EarthshakeItem
@@ -45,12 +46,10 @@
 - (NSString *)date
 {
     double totalSeconds = [[self.properties objectForKey:kTime] doubleValue];
-    int timeZoneSeconds = [[self.properties objectForKey:kTimeZone] intValue] * 60;
 
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:(totalSeconds / 1000)];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:timeZoneSeconds]];
     [dateFormatter setDateFormat:@"yyyy'/'MM'/'dd"];
 
     NSString *formattedDate = [dateFormatter stringFromDate:date];
@@ -61,23 +60,41 @@
 - (NSString *)time
 {
     double totalSeconds = [[self.properties objectForKey:kTime] doubleValue];
-    int timeZoneSeconds = [[self.properties objectForKey:kTimeZone] intValue] * 60;
 
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:(totalSeconds / 1000)];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:timeZoneSeconds]];
-    [dateFormatter setDateFormat:@"h':'mm a"];
+    [dateFormatter setDateFormat:@"HH':'mm z"];
 
     NSString *formattedDate = [dateFormatter stringFromDate:date];
 
     return formattedDate;
 }
 
-- (NSString *)featureType
+- (BOOL)isEarthquake
 {
+    BOOL earthquake = NO;
     NSString *type = [self.properties objectForKey:kFeatureType];
-    return [type capitalizedString];
+
+    if ([type isEqualToString:@"earthquake"])
+    {
+        earthquake = YES;
+    }
+
+    return earthquake;
+}
+
+- (BOOL)isQuarry
+{
+    BOOL quarry = NO;
+    NSString *type = [self.properties objectForKey:kFeatureType];
+    
+    if ([type isEqualToString:@"quarry"])
+    {
+        quarry = YES;
+    }
+    
+    return quarry;
 }
 
 - (NSString *)detailURLString
@@ -93,6 +110,12 @@
     CLLocationCoordinate2D epicenter = CLLocationCoordinate2DMake([[coordinates objectAtIndex:1] doubleValue], [[coordinates objectAtIndex:0] doubleValue]);
 
     return epicenter;
+}
+
+- (NSNumber *)tsunami
+{
+    NSNumber *tsunami = [self.properties objectForKey:kTsunami];
+    return tsunami;
 }
 
 @end
