@@ -1,6 +1,6 @@
-// UIRefreshControl+AFNetworking.m
+// AFNetworkActivityConsoleLogger.h
 //
-// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
+// Copyright (c) 2015 AFNetworking (http://afnetworking.com/)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,14 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-
-#import <TargetConditionals.h>
-
-#if TARGET_OS_IOS
-
-#import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "AFNetworkActivityLoggerProtocol.h"
 
 /**
- This category adds methods to the UIKit framework's `UIRefreshControl` class. The methods in this category provide support for automatically beginning and ending refreshing depending on the loading state of a session task.
+ `AFNetworkActivityConsoleLogger` logs requests and responses made by AFNetworking to the console.
  */
-@interface UIRefreshControl (AFNetworking)
+@interface AFNetworkActivityConsoleLogger : NSObject <AFNetworkActivityLoggerProtocol>
 
-///-----------------------------------
-/// @name Refreshing for Session Tasks
-///-----------------------------------
-
-/**
- Binds the refreshing state to the state of the specified task.
- 
- @param task The task. If `nil`, automatic updating from any previously specified operation will be disabled.
- */
-- (void)setRefreshingWithStateOfTask:(NSURLSessionTask *)task;
+@property (nonatomic, strong) NSPredicate *filterPredicate;
+@property (nonatomic, assign) AFHTTPRequestLoggerLevel level;
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#endif

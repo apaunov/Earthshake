@@ -5,5 +5,6 @@ platform :ios, '7.0'
 
 target 'Earthshake' do
     pod 'AFNetworking', '~> 3.0'
+    pod 'AFNetworkActivityLogger', :git => 'https://github.com/AFNetworking/AFNetworkActivityLogger.git', :branch => '3_0_0'
 end
 
