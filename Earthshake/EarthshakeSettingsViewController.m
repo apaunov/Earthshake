@@ -20,7 +20,8 @@
 {
     [super viewDidLoad];
     
-    self.sectionTitles = @{NSLocalizedString(@"Notifications", nil) : @[NSLocalizedString(@"Notifications Settings", nil)],
+    self.sectionTitles = @{
+                           NSLocalizedString(@"Notifications", nil) : @[NSLocalizedString(@"Notifications Settings", nil)],
                            NSLocalizedString(@"Measurements", nil) : @[]
                            };
 }
@@ -32,7 +33,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.sectionTitles objectForKey:section];
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -40,7 +41,7 @@
     switch (section)
     {
         case 0:
-            return ;
+            return @"";
             break;
 
         case 1:

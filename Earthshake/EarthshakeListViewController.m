@@ -23,6 +23,7 @@
 // Local properties
 @property (strong, nonatomic) NSArray *earthshakeItems;                         // All accuired items
 @property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;            // Search results on specific search criteria
+@property (strong, nonatomic) UISearchController *searchController;             // Search controller
 @property (strong, nonatomic) NSString *showEarthshakeDetailsSegueIdentifier;   // Identifier to help distinguish between segues
 
 @end
@@ -36,6 +37,12 @@
     [super viewDidLoad];
 
     self.showEarthshakeDetailsSegueIdentifier = @"ShowEarthshakeDetails";
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
+    self.earthshakeTableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
 
     [self loadTableData];
 }
@@ -47,14 +54,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        return [self.earthshakeItemsSearchResults count];
-    }
-    else
-    {
+//    if (tableView == self.searchController.searchResultsTableView)
+//    {
+//        return [self.earthshakeItemsSearchResults count];
+//    }
+//    else
+//    {
         return [self.earthshakeItems count];
-    }
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,16 +77,16 @@
 
     EarthshakeItem *earthshakeItem = nil;
 
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        // From search results
-        earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:indexPath.row];
-    }
-    else
-    {
+//    if (tableView == self.searchController.searchResultsTableView)
+//    {
+//        // From search results
+//        earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:indexPath.row];
+//    }
+//    else
+//    {
         // Initial data acquired
         earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
-    }
+//    }
 
     cell.place.text = earthshakeItem.place;
     cell.magnitude.text = [self.decimalFormatter stringFromNumber:earthshakeItem.magnitude];
@@ -148,12 +155,12 @@
 
 #pragma mark - Searching methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
-}
+//- (BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+//{
+//    [self filterContentForSearchText:searchString
+//                               scope:[[self.searchController.searchBar scopeButtonTitles] objectAtIndex:[self.searchController.searchBar selectedScopeButtonIndex]]];
+//    return YES;
+//}
 
 #pragma mark - Navigation
 
@@ -170,14 +177,14 @@
             EarthshakeDetailsViewController *destinationViewController = segue.destinationViewController;
             EarthshakeItem *earthshakeItem;
 
-            if (self.searchDisplayController.active)
-            {
-                earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:self.searchDisplayController.searchResultsTableView.indexPathForSelectedRow.row];
-            }
-            else
-            {
+//            if (self.searchController.active)
+//            {
+//                earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:self.searchController.searchResultsTableView.indexPathForSelectedRow.row];
+//            }
+//            else
+//            {
                 earthshakeItem = [self.earthshakeItems objectAtIndex:self.earthshakeTableView.indexPathForSelectedRow.row];
-            }
+//            }
 
             destinationViewController.detailURLString = earthshakeItem.detailURLString;
         }
