@@ -117,8 +117,8 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
 //    EarthshakeCell *cell = [[EarthshakeCell alloc] init];
 //    EarthshakeItem *earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
 //
@@ -134,8 +134,8 @@
 //        return 116;
 //    }
 
-    return 100;
-}
+//    return 100;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
