@@ -23,5 +23,6 @@
 
 - (void)getRequestDataSuccess:(EarthshakeSuccessBlock)success failure:(EarthshakeFailureBlock)failure;
 - (void)didSelectRefresh;
+- (void)displayAlert:(NSError *)error;
 
 @end

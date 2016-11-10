@@ -67,7 +67,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xDF-59-MBT" id="uPw-aR-VoC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rni-wc-srw" userLabel="Info View">
@@ -169,7 +169,7 @@
                                             <outlet property="place" destination="dAZ-eX-YYh" id="0el-w3-SmL"/>
                                             <outlet property="time" destination="X3y-nC-oqC" id="uK6-Oo-fsU"/>
                                             <outlet property="tsunamiImageView" destination="LbD-NZ-QAm" id="CfH-vg-pGZ"/>
-                                            <segue destination="FUm-5O-yUA" kind="show" identifier="ShowEarthshakeDetails" id="y71-xY-Njl"/>
+                                            <segue destination="FUm-5O-yUA" kind="show" identifier="ShowEarthshakeDetails" id="xWI-Jt-X4o"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -363,6 +363,6 @@
         <image name="Settings" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y71-xY-Njl"/>
+        <segue reference="xWI-Jt-X4o"/>
     </inferredMetricsTieBreakers>
 </document>

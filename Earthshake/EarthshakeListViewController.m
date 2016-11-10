@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSArray *earthshakeItemsSearchResults;            // Search results on specific search criteria
 @property (strong, nonatomic) UISearchController *searchController;             // Search controller
 @property (strong, nonatomic) NSString *showEarthshakeDetailsSegueIdentifier;   // Identifier to help distinguish between segues
+@property (assign, nonatomic) BOOL showSearchResults;                          // Decides whether to show search results base on whether we are search a word or not
 
 @end
 
@@ -37,10 +38,12 @@
     [super viewDidLoad];
 
     self.showEarthshakeDetailsSegueIdentifier = @"ShowEarthshakeDetails";
+
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.delegate = self;
+
     self.earthshakeTableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
 
@@ -54,14 +57,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (tableView == self.searchController.searchResultsTableView)
-//    {
-//        return [self.earthshakeItemsSearchResults count];
-//    }
-//    else
-//    {
+    if (self.showSearchResults)
+    {
+        return [self.earthshakeItemsSearchResults count];
+    }
+    else
+    {
         return [self.earthshakeItems count];
-//    }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,16 +80,16 @@
 
     EarthshakeItem *earthshakeItem = nil;
 
-//    if (tableView == self.searchController.searchResultsTableView)
-//    {
-//        // From search results
-//        earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:indexPath.row];
-//    }
-//    else
-//    {
+    if (self.showSearchResults)
+    {
+        // From search results
+        earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:indexPath.row];
+    }
+    else
+    {
         // Initial data acquired
         earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
-//    }
+    }
 
     cell.place.text = earthshakeItem.place;
     cell.magnitude.text = [self.decimalFormatter stringFromNumber:earthshakeItem.magnitude];
@@ -117,35 +120,9 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    EarthshakeCell *cell = [[EarthshakeCell alloc] init];
-//    EarthshakeItem *earthshakeItem = [self.earthshakeItems objectAtIndex:indexPath.row];
-//
-//    // Initial height
-//    CGFloat height = 30.0f;
-//
-//    height += [cell.magnitude.text sizeWithAttributes:@{NSFontAttributeName: cell.magnitude.font}].height;
-//
-//    NSLog(@"Total height: %f", height);
-
-//    if ([earthshakeItem.tsunami intValue] == 1)
-//    {
-//        return 116;
-//    }
-
-//    return 100;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope
-{
-    NSPredicate *resultPredecate = [NSPredicate predicateWithFormat:@"place contains[c] %@", searchText];
-    self.earthshakeItemsSearchResults = [self.earthshakeItems filteredArrayUsingPredicate:resultPredecate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -155,12 +132,24 @@
 
 #pragma mark - Searching methods
 
-//- (BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-//{
-//    [self filterContentForSearchText:searchString
-//                               scope:[[self.searchController.searchBar scopeButtonTitles] objectAtIndex:[self.searchController.searchBar selectedScopeButtonIndex]]];
-//    return YES;
-//}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.showSearchResults = YES;
+    [self.earthshakeTableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.showSearchResults = NO;
+    [self.earthshakeTableView reloadData];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSPredicate *resultPredecate = [NSPredicate predicateWithFormat:@"place contains[cd] %@", searchController.searchBar.text];
+    self.earthshakeItemsSearchResults = [self.earthshakeItems filteredArrayUsingPredicate:resultPredecate];
+    [self.earthshakeTableView reloadData];
+}
 
 #pragma mark - Navigation
 
@@ -177,18 +166,20 @@
             EarthshakeDetailsViewController *destinationViewController = segue.destinationViewController;
             EarthshakeItem *earthshakeItem;
 
-//            if (self.searchController.active)
-//            {
-//                earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:self.searchController.searchResultsTableView.indexPathForSelectedRow.row];
-//            }
-//            else
-//            {
+            if (self.searchController.active)
+            {
+                earthshakeItem = [self.earthshakeItemsSearchResults objectAtIndex:[self.earthshakeTableView indexPathForCell:(EarthshakeCell *)sender].row];
+            }
+            else
+            {
                 earthshakeItem = [self.earthshakeItems objectAtIndex:self.earthshakeTableView.indexPathForSelectedRow.row];
-//            }
+            }
 
             destinationViewController.detailURLString = earthshakeItem.detailURLString;
         }
     }
+    
+    
 }
 
 #pragma mark - Helper methods
@@ -229,6 +220,7 @@
 - (void)loadTableData
 {
     self.earthshakeTableView.hidden = YES;
+
     [self.spinner startAnimating];
 
     [super getRequestDataSuccess:^(NSArray * earthshakeItems)
@@ -237,20 +229,24 @@
 
         self.earthshakeItems = [earthshakeItems copy];
         self.earthshakeTableView.hidden = NO;
-
         [self.earthshakeTableView reloadData];
+
+        if ([earthshakeItems count])
+        {
+            [self hideSearchBar];
+        }
     }
                          failure:^(NSError *error)
     {
         [self.spinner stopAnimating];
 
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error"
-                                                        message: error.localizedDescription
-                                                       delegate: self
-                                              cancelButtonTitle: @"OK"
-                                              otherButtonTitles: nil, nil];
-        [alert show];
+        [self displayAlert:error];
     }];
+}
+
+- (void)hideSearchBar
+{
+    [self.earthshakeTableView setContentOffset:CGPointMake(0.0, self.earthshakeTableView.tableHeaderView.frame.size.height) animated:NO];
 }
 
 - (void)didSelectRefresh

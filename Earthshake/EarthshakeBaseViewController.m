@@ -64,4 +64,21 @@
 {
 }
 
+- (void)displayAlert:(NSError *)error
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                   message:error.localizedDescription
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action)
+                                    {
+                                    }];
+    
+    [alert addAction:dismissAction];
+
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end

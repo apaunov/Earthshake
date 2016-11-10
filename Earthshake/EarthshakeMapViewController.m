@@ -169,12 +169,7 @@
      }
                          failure:^(NSError *error)
      {
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error"
-                                                         message: [error description]
-                                                        delegate: self
-                                               cancelButtonTitle: @"OK"
-                                               otherButtonTitles: nil, nil];
-         [alert show];
+         [self displayAlert:error];
      }];
 }
 

@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.earthshakeWebView.delegate = self;
 
     [self loadDetailsData];
