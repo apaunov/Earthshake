@@ -127,7 +127,7 @@ class EarthshakeListViewController: EarthshakeBaseViewController, UITableViewDel
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
     {
-        showSearchResults = true
+        showSearchResults = false
         earthshakeTableView.reloadData()
     }
 

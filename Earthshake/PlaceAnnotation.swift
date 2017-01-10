@@ -11,8 +11,8 @@ import MapKit
 
 class PlaceAnnotation : NSObject, MKAnnotation
 {
-    var placeTitle = ""
-    var placeSubtitle = ""
+    var title: String?
+    var subtitle: String?
     var magnitude: NSNumber!
     var detailURLString = ""
     var coordinate = CLLocationCoordinate2D()

@@ -145,8 +145,8 @@ class EarthshakeMapViewController: EarthshakeBaseViewController, CLLocationManag
                 for earthshakeItem in self.earthshakeItems
                 {
                     let earthshakeAnnotation = PlaceAnnotation()
-                    earthshakeAnnotation.placeTitle = earthshakeItem.place
-                    earthshakeAnnotation.placeSubtitle = String(format: "%@ %@", super.decimalFormatter.string(from: earthshakeItem.magnitude)!, "magnitude".localized)
+                    earthshakeAnnotation.title = earthshakeItem.place
+                    earthshakeAnnotation.subtitle = String(format: "%@ %@", super.decimalFormatter.string(from: earthshakeItem.magnitude)!, "magnitude".localized)
                     earthshakeAnnotation.coordinate = earthshakeItem.epicenter
                     earthshakeAnnotation.magnitude = earthshakeItem.magnitude
                     earthshakeAnnotation.detailURLString = earthshakeItem.detailURLString
