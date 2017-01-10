@@ -1,0 +1,6 @@
+framework module Pods_Earthshake {
+  umbrella header "Pods-Earthshake-umbrella.h"
+
+  export *
+  module * { export * }
+}
