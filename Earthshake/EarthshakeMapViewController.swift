@@ -164,7 +164,7 @@ class EarthshakeMapViewController: EarthshakeBaseViewController, CLLocationManag
     {
         super.didSelectRefresh()
 
-        mapView.removeAnnotation(mapView.annotations as! MKAnnotation)
+        mapView.removeAnnotations(mapView.annotations)
 
         loadMapData()
     }

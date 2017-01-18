@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "EarthshakeSettingsDetailsViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:EarthshakeSettingsDetailsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rowSubtitles[indexPath.section][indexPath.row]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "EarthshakeBaseViewController.getRequestedData(success : ([Any]) -&gt; ()?, failure : (Error) -&gt; ()?) -&gt; ():EarthshakeBaseViewController.swift">
          <PersistentStrings>
             <PersistentString

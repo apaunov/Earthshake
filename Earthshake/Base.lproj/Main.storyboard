@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,13 +59,13 @@
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pc3-Cx-lgc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="earthshakeCell" rowHeight="119" id="xDF-59-MBT" customClass="EarthshakeCell" customModule="Earthshake">
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xDF-59-MBT" id="uPw-aR-VoC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rni-wc-srw" userLabel="Info View">
@@ -293,16 +292,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rgW-DG-5TQ">
-                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ckA-e2-DLr" id="A7O-cC-odz"/>
+                                    <outlet property="delegate" destination="ckA-e2-DLr" id="wNS-N6-LwT"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ReH-Nz-yAk" firstAttribute="top" secondItem="rgW-DG-5TQ" secondAttribute="bottom" id="El2-j2-PXg"/>
-                            <constraint firstItem="rgW-DG-5TQ" firstAttribute="leading" secondItem="je6-QD-Yjv" secondAttribute="leadingMargin" constant="-20" id="TxS-4p-bCE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rgW-DG-5TQ" secondAttribute="trailing" constant="-20" id="fdS-IU-tzI"/>
-                            <constraint firstItem="rgW-DG-5TQ" firstAttribute="top" secondItem="aLR-Od-VST" secondAttribute="bottom" id="uRM-Cz-E6F"/>
+                            <constraint firstItem="ReH-Nz-yAk" firstAttribute="top" secondItem="rgW-DG-5TQ" secondAttribute="bottom" id="1pf-0a-0xP"/>
+                            <constraint firstItem="rgW-DG-5TQ" firstAttribute="top" secondItem="aLR-Od-VST" secondAttribute="bottom" constant="-64" id="jus-4r-fcF"/>
+                            <constraint firstAttribute="trailing" secondItem="rgW-DG-5TQ" secondAttribute="trailing" id="tpK-Qy-vMm"/>
+                            <constraint firstItem="rgW-DG-5TQ" firstAttribute="leading" secondItem="je6-QD-Yjv" secondAttribute="leading" id="wGE-ND-kbo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="9g6-ms-G9j"/>

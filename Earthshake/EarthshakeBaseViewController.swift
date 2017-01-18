@@ -22,19 +22,19 @@ class EarthshakeBaseViewController : UIViewController
     let MIN_MAG_VALUE = "2.5"
     let decimalFormatter = NumberFormatter()
 
+    var refreshButton: UIButton?                // Refresh button with functionality implemented by the subclesses
     var earthshakeService: EarthshakeService?   // Protocol to interact with the request service
     var parameters = [AnyHashable: Any]()       // Dictionary with parameters
 
     override func viewDidLoad()
     {
         // Adding the refresh button
+        refreshButton = UIButton(type: UIButtonType.custom)
+        refreshButton?.frame = CGRect(x: 0, y: 0, width: 22, height: 22)
+        refreshButton?.addTarget(self, action: .refreshButtonTapped, for: UIControlEvents.touchUpInside)
+        refreshButton?.setBackgroundImage(UIImage(named: "Refresh"), for: UIControlState.normal)
 
-        let refreshButton = UIButton(type: UIButtonType.custom)
-        refreshButton.frame = CGRect(x: 0, y: 0, width: 22, height: 22)
-        refreshButton.addTarget(self, action: .refreshButtonTapped, for: UIControlEvents.touchUpInside)
-        refreshButton.setBackgroundImage(UIImage(named: "Refresh"), for: UIControlState.normal)
-
-        let refreshButtonItem = UIBarButtonItem(customView: refreshButton)
+        let refreshButtonItem = UIBarButtonItem(customView: refreshButton!)
         navigationItem.rightBarButtonItems = [refreshButtonItem]
 
         // Date formatting
